@@ -3,15 +3,15 @@
   "rewrites": [
     {
       "source": "/sitemap.xml",
-      "destination": "/api/handler?route=seo-sitemap"
+      "destination": "/api/seo-sitemap"
     },
     {
       "source": "/materials",
-      "destination": "/api/handler?route=seo-catalogue"
+      "destination": "/api/seo-catalogue"
     },
     {
       "source": "/products/:id/:slug",
-      "destination": "/api/handler?route=seo-product&id=:id"
+      "destination": "/api/seo-product?id=:id"
     },
     {
       "source": "/api/:path*",

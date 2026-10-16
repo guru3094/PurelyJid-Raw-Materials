@@ -33,3 +33,17 @@ test('public SEO routes work with original URLs and Vercel rewrite query helpers
   keys.forEach((key,i)=>{if(previous[i]===undefined)delete process.env[key];else process.env[key]=previous[i];});
  }
 });
+
+test('public rewrites survive the API catch-all without losing route or product ID', async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const config=JSON.parse(await readFile(new URL('../vercel.json',import.meta.url),'utf8'));
+ const expected=[['/materials','seo-catalogue'],['/sitemap.xml','seo-sitemap'],['/products/:id/:slug','seo-product']];
+ for(const [source,route] of expected){
+  const rule=config.rewrites.find(r=>r.source===source);
+  const destination=new URL(rule.destination.replace(':id','42'),'https://example.com');
+  // Vercel's /api/:path* catch-all replaces route with the destination path.
+  const captured=destination.pathname.replace(/^\/api\//,'');
+  assert.equal(captured,route,source+' must retain its route after the API rewrite');
+  if(route==='seo-product')assert.equal(destination.searchParams.get('id'),'42');
+ }
+});
