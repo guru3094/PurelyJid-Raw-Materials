@@ -45,5 +45,27 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/search",
+      "destination": "/#catalogue",
+      "permanent": true
+    },
+    {
+      "source": "/policies/contact-information",
+      "destination": "/#visit",
+      "permanent": true
+    },
+    {
+      "source": "/pages/track-your-order",
+      "destination": "https://www.purelyjid.in/track-order",
+      "permanent": true
+    },
+    {
+      "source": "/collections/all",
+      "destination": "/materials",
+      "permanent": true
+    }
   ]
 }
