@@ -18,7 +18,7 @@ test('shipping and return pages are public, canonical, branded and independent o
   assert.ok(policyPage(kind).includes('href="/policies/return-policy"'));
  }
  const shipping=policyPage('shipping');assert.ok(shipping.includes('3–4 business days after your order is confirmed'));assert.ok(shipping.includes('Monday to Friday'));
- const returns=policyPage('return');assert.ok(returns.includes('We do not accept returns'));assert.ok(returns.includes('statutory rights'));assert.ok(returns.includes('continuous, unedited (uncut) unboxing video'));assert.ok(returns.includes('If an unboxing video is not available'));assert.ok(!returns.includes('within 24 hours'));
+ const returns=policyPage('return');assert.ok(returns.includes('We do not accept returns'));assert.ok(returns.includes('customers must submit a continuous, unedited unboxing video'));assert.ok(returns.includes('shipping label'));assert.ok(returns.includes('Without this video, we may be unable to verify or approve the claim.'));assert.ok(returns.includes('subject to applicable consumer law'));assert.ok(!returns.includes('If an unboxing video is not available'));assert.ok(!returns.includes('within 24 hours'));
 });
 
 test('policy URLs have API-compatible rewrites, local routes and discoverable homepage links',async()=>{
