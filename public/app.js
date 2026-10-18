@@ -33,7 +33,7 @@ $('#checkout-form').addEventListener('submit',async e=>{
  try{const r=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const result=await r.json();if(!r.ok)throw Error(result.error||'Could not save order');
  $('#confirmation').textContent='Order '+result.order_number+' · Subtotal '+money(result.subtotal)+' · '+result.status;
  $('#order-whatsapp').href='https://wa.me/919518770073?text='+encodeURIComponent('Hi PurelyJid! I placed order '+result.order_number+'. Please confirm availability, delivery and payment.');
- cart={};save();render();attempt=null;$('#checkout-dialog').close();show('success-dialog');form.reset();$('#address-label').hidden=true;$('#address-label textarea').required=false;
+ cart={};save();render();attempt=null;$('#checkout-dialog').close();$('#success-dialog').show();window.PurelyJidReviews?.offer({orderId:result.order_number,email:String(f.get('email')||'').trim()});form.reset();$('#address-label').hidden=true;$('#address-label textarea').required=false;
  const refreshed=await fetch('/api/products');if(refreshed.ok){products=await refreshed.json();render();}
  }catch(error){$('#order-error').textContent=error.message;}finally{button.disabled=false;button.textContent='Place order request →';securityToken='';if(widget!==null&&window.turnstile)turnstile.reset(widget);}
 });
