@@ -240,3 +240,12 @@ body.storefront {
 @media (prefers-reduced-motion: reduce) {
   .storefront *, .storefront *::before, .storefront *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Customer policies */
+.storefront .policy-copy { max-width: 800px; margin: 0 auto; }
+.storefront .policy-copy h2 { margin: 30px 0 12px; font-size: 26px; }
+.storefront .policy-copy p { line-height: 1.9; }
+.storefront .policy-copy a { text-decoration: underline; text-underline-offset: 3px; }
+.storefront .policy-back { margin-top: 32px; }
+.storefront .footer-policies { grid-column: 1/-1; display: flex; flex-wrap: wrap; gap: 12px 24px; padding-top: 18px; border-top: 1px solid #ffffff26; }
+.storefront .footer-policies a { display: inline-block; text-decoration: underline; text-underline-offset: 3px; }

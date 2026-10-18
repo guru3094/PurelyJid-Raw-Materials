@@ -6,6 +6,14 @@
       "destination": "/api/seo-sitemap"
     },
     {
+      "source": "/policies/shipping-policy",
+      "destination": "/api/seo-shipping-policy"
+    },
+    {
+      "source": "/policies/return-policy",
+      "destination": "/api/seo-return-policy"
+    },
+    {
       "source": "/google-products.xml",
       "destination": "/api/merchant-feed"
     },
