@@ -6,6 +6,10 @@
       "destination": "/api/seo-sitemap"
     },
     {
+      "source": "/google-products.xml",
+      "destination": "/api/merchant-feed"
+    },
+    {
       "source": "/materials",
       "destination": "/api/seo-catalogue"
     },
