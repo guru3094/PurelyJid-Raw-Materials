@@ -37,3 +37,5 @@ async function applyImport(){const p=cataloguePreview;if(!p)return;const confirm
  try{const result=await request('catalogue/replace','POST',{confirmation,expected_revision:p.expected_revision,products:p.rows});cataloguePreview=null;products=[];if(view==='import'){$('#import-preview').innerHTML='';$('#import-message').textContent=`Updated ${result.updated} products and added ${result.inserted}. Deleted ${result.removed} old products; archived ${result.archived} historical products. Open Products & stock to review.`;}}
  catch(e){if(view==='import'){$('#import-message').textContent=e.message+' Preview again before retrying.';cataloguePreview=null;}}finally{button.disabled=true;}
 }
+
+$('#sheet-sync').onclick=async()=>{const b=$('#sheet-sync');b.disabled=true;try{const r=await request('sheet-sync','POST',{});$('#message').textContent=r.configured===false?'Orders Sheet sync is not configured.':`Synced ${r.sent} orders. ${r.pending?'Some orders remain pending; retry or check integration setup.':'Batch complete.'}`;}catch(e){$('#message').textContent=e.message;}finally{b.disabled=false;}};

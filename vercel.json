@@ -79,5 +79,11 @@
       "destination": "/materials",
       "permanent": true
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/sheet-sync",
+      "schedule": "0 3 * * *"
+    }
   ]
 }
